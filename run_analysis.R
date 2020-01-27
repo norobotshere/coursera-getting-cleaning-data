@@ -109,12 +109,12 @@ computeAverages <- function (data) {
     averages
 }
 
-# saves a data frame as a csv file
+# saves a data frame as a txt file
 saveDataSet <- function (data, destination) {
-    write.csv(data, file = destination, row.names=FALSE)
+    write.table(data, file = destination, row.names=FALSE)
 }
 
-# downloads the raw data and creates two tidy data sets, tidyData.csv and tidyAverages.csv
+# downloads the raw data and creates two tidy data sets, tidyData.txt and tidyAverages.txt
 # see the README and codebook for more information.
 runAnalysis <- function () {
     print("Downloading raw dataset...")
@@ -141,8 +141,8 @@ runAnalysis <- function () {
     mergedData <- mergeDataSets(testData, 'test', trainData, 'train')
     print("Done.")
 
-    print("Saving tidyData.csv...")
-    saveDataSet(mergedData, './tidyData.csv')
+    print("Saving tidyData.txt...")
+    saveDataSet(mergedData, './tidyData.txt')
     print("Done.")
     
     testData <- NULL
@@ -152,8 +152,8 @@ runAnalysis <- function () {
     averageData <- computeAverages(mergedData)
     print("Done.")
 
-    print("Saving tidyAverages.csv...")
-    saveDataSet(averageData, './tidyAverages.csv')
+    print("Saving tidyAverages.txt...")
+    saveDataSet(averageData, './tidyAverages.txt')
     print("Done.")
 }
 
