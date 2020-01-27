@@ -80,7 +80,7 @@ loadSimplifiedDataSet <- function (dir, desiredColumns, columnNames, activityNam
     colnames(data) <- columnNames
 
     data$subject <- subjects$subject
-    data$activity <- as.factor(activities$activity)
+    data$activity <- factor(activities$activity, levels=seq_along(activityNames), labels=activityNames)
 
     data <- data %>% 
         # split long list of variables into four columns, "signal", "mean", "std", "axis"
